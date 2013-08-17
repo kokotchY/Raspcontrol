@@ -20,6 +20,7 @@ if (isset($_SESSION['authentificated']) && $_SESSION['authentificated']) {
     if ($page == $_GET['page'])
       echo ' class="active"';
   }
+  $user = $_SESSION['user_information'][0]['cn'][0];
 }
 else {
   $_GET['page'] = 'login';
@@ -72,7 +73,7 @@ $page = file_exists($page) ? $page : 'pages'. DIRECTORY_SEPARATOR .'404.php';
 				<li<?php is_active('services'); ?>><a href="<?php echo SERVICES; ?>"><i class="icon-cog icon-white"></i> Services</a></li>
 			  </ul>
 			  <ul class="nav pull-right">
-				<li><a href="<?php echo LOGOUT; ?>"><i class="icon-off icon-white"></i> Logout</a></li>
+				<li><a href="<?php echo LOGOUT; ?>"><i class="icon-off icon-white"></i> Logout (<?php echo $user ?>)</a></li>
 			  </ul>
           </div>
         </div>
